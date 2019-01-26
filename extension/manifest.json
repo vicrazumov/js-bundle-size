@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "JavaScript Bundle Size",
+  "author": "Viktor Razumov",
+  "description": "Get the JS bundle size directly in the npm and github pages",
+  "homepage_url": "https://github.com/ryanwhocodes/template-browser-extension",
+  "version": "0.1.0",
+  "content_scripts": [{
+    "css": ["css/style.css"],
+    "js": ["js/background.js"],
+    "matches": ["https://www.npmjs.com/package/*", "https://github.com/*/*"]
+  }],
+  "icons": {
+    "16": "/icons/icon16.png",
+    "48": "icons/icon48.png",
+   "128": "icons/icon128.png"
+  }
+}

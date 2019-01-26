@@ -1,0 +1,29 @@
+.jsbs-github-container {
+  display: flex;
+  margin: 6px 0;
+}
+
+.jsbs-github-container a {
+  text-decoration: none !important;
+}
+
+.jsbs-badge-container {
+  display: flex;
+  margin-right: 4px;
+}
+
+.jsbs-badge-label {
+  padding: 4px;
+  font-size: 10px;
+  color:white;
+  background-color: grey;
+  border-radius:5px 0px 0px 5px;
+}
+
+.jsbs-badge-value {
+  font-size: 10px;
+  color: black;
+  background-color: #f6e100;
+  border-radius:0px 5px 5px 0px;
+  padding: 4px;
+}
