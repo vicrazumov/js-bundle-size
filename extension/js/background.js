@@ -73,7 +73,7 @@ const main = () => {
     .then(response => response.json())
     .then(sizeTransformer)
     .then(transformer)
-    .catch(() => {})
+    .catch(err => console.warn('Retrieving JS bundle size failed', { err }))
 }
 
 main()

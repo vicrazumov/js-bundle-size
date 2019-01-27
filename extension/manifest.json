@@ -2,8 +2,8 @@
   "manifest_version": 2,
   "name": "Javascript Bundle Size",
   "author": "Viktor Razumov",
-  "description": "Get the JS bundle size directly in the npm and github pages",
-  "homepage_url": "https://github.com/ryanwhocodes/template-browser-extension",
+  "description": "Automatically adds javascript bundle size data to npm and github project pages",
+  "homepage_url": "https://github.com/vicrazumov/js-bundle-size",
   "version": "0.1.0",
   "content_scripts": [{
     "css": ["css/style.css"],
