@@ -53,7 +53,7 @@ const npmTransformer = npmPackage => ({ gzip, size }) => {
   const sizeDiv = document.createElement('div')
   container.insertBefore(sizeDiv, lastElement)
   sizeDiv.classList = npmDivClassList
-  sizeDiv.innerHTML = npmInnerHTMLGenerator('size', npmPackage, size)
+  sizeDiv.innerHTML = npmInnerHTMLGenerator('minified', npmPackage, size)
 
   const gzipDiv = document.createElement('div')
   container.insertBefore(gzipDiv, lastElement)
