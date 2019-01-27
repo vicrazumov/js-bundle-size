@@ -22,6 +22,7 @@
 
 .jsbs-badge-value {
   font-size: 10px;
+  font-weight: bold;
   color: black;
   background-color: #f6e100;
   border-radius:0px 5px 5px 0px;
