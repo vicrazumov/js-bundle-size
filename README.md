@@ -13,5 +13,8 @@ This cross-browser extension takes the next step, automatically requesting this 
 
 Tested in Google Chrome 71 and Mozilla Firefox 64.0.2 on macOS 10.14.
 
+## Notes
+Please note, that Chrome doesn't require the `permissions` property in `manifest.json`, whereas Firefox doesn't allow `fetch` calls without that (even with mentioning the npm and github hosts explicitly).
+
 ## Contribution
 Contributors' help is welcome, especially in bringing this to Edge, Opera, Safari and, maybe, other browsers.
