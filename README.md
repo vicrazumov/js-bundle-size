@@ -11,7 +11,7 @@ This cross-browser extension takes the next step, automatically requesting this 
 
 ![github](https://github.com/vicrazumov/js-bundle-size/raw/master/images/github.png)
 
-Tested in Google Chrome 71 and Mozilla Firefox 64.0.2 on macOS 10.14.
+Tested in [Google Chrome 71](https://chrome.google.com/webstore/detail/javascript-bundle-size/aojdnjnhhjmokccbelfdocgiedioienh/) and [Mozilla Firefox 64.0.2](https://addons.mozilla.org/ru/firefox/addon/javascript-bundle-size/) on macOS 10.14.
 
 ## Notes
 Please note, that Chrome doesn't require the `permissions` property in `manifest.json`, whereas Firefox doesn't allow `fetch` calls without that (even with mentioning the npm and github hosts explicitly).
