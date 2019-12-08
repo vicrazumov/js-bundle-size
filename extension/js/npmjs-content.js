@@ -1,8 +1,8 @@
-const getPackageNameFromGithubBody = bodyText => {
-  if (!bodyText) return
+const getPackageNameFromNpm = url => {
+  if (!url) return
 
-  const npmOrYarnMatch = bodyText.match(/((npm i\w*)( )(-[a-zA-Z-]+\s)*([a-z0-9-\.\_\@\/]+))|(yarn add ([a-z0-9-\.\_\@\/]+))/i)
-  return npmOrYarnMatch && (npmOrYarnMatch[7] || npmOrYarnMatch[5])
+  const match = url.match(/(https:\/\/www.npmjs.com\/package\/)(.+)/i)
+  return match && match[2]
 }
 
 const npmTransformer = npmPackage => ({ gzip, size }) => {
