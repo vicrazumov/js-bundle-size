@@ -5,42 +5,6 @@ const getPackageNameFromGithubBody = bodyText => {
   return npmOrYarnMatch && (npmOrYarnMatch[7] || npmOrYarnMatch[5])
 }
 
-const getPackageNameFromNpm = url => {
-  if (!url) return
-
-  const match = url.match(/(https:\/\/www.npmjs.com\/package\/)(.+)/i)
-  return match && match[2]
-}
-
-const getBundlephobiaLink = package => `https://bundlephobia.com/result?p=${package}`
-
-const sizeTransformer = ({ gzip, size }) => {
-  const parse = input => parseFloat(input).toFixed(1)
-  const format = input => input > 1048576
-    ? `${parse(input / 1048576)} MB` : input > 1024
-    ? `${parse(input / 1024)} KB` : `${input} B`
-
-  return {
-    gzip: format(gzip),
-    size: format(size),
-  }
-}
-
-const githubTransformer = npmPackage => ({ gzip, size }) => {
-  const badgeGenerator = (href, name, value) => `<a href="${href}"><div class="jsbs-badge-container"><div class="jsbs-badge-label">${name}</div><div class="jsbs-badge-value">${value}</div></div></a>`
-
-  const article = document.querySelector('article.markdown-body')
-  if (!article) return
-
-  const link = getBundlephobiaLink(npmPackage)
-  const div = document.createElement('div')
-  div.className = 'jsbs-github-container'
-  div.innerHTML = badgeGenerator(link, 'minified', size)
-    + badgeGenerator(link, 'minified + gzipped', gzip)
-
-  article.insertBefore(div, article.firstChild)
-}
-
 const npmTransformer = npmPackage => ({ gzip, size }) => {
   const npmDivClassList = 'dib w-50 bb b--black-10 pr2'
   const npmInnerHTMLGenerator = (header, package, value) => `<h3 class="f5 mt2 pt2 mb0 black-50">${header}</h3><p class="fw6 mb3 mt2 truncate black-80 f4"><a class="fw6 mb3 mt2 truncate black-80 f4 link" href="${getBundlephobiaLink(package)}">${value}</a></p>`
@@ -62,12 +26,10 @@ const npmTransformer = npmPackage => ({ gzip, size }) => {
 }
 
 const main = () => {
-  const npmPackage = getPackageNameFromNpm(window.location.href)
-  const githubPackage = !npmPackage && getPackageNameFromGithubBody(document.querySelector('body').innerHTML)
-  const package = npmPackage || githubPackage
+  const package = getPackageNameFromNpm(window.location.href)
   if (!package) return
 
-  const transformer = npmPackage ? npmTransformer(package) : githubTransformer(package)
+  const transformer = npmTransformer(package)
 
   fetch(`https://bundlephobia.com/api/size?package=${package}`)
     .then(response => response.json())
