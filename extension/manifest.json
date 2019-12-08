@@ -26,5 +26,5 @@
     "48": "icons/icon48.png",
    "128": "icons/icon128.png"
   },
-  "permissions": ["*://*/*"]
+  "permissions": ["https://bundlephobia.com/api/size"]
 }
